@@ -1,8 +1,22 @@
 <!doctype html>
 <html>
 <head>
-    <script>window.COFRAME_PAGE_ID="6563f3eff699cf46f84e9a31";</script>
-    <script src='https://cdn.jsdelivr.net/npm/coframe-ai/dist/cf.min.js'></script>
+    <script>
+        // Coframe antiflicker: hide body until coframe:show event or 2s timeout
+        const style = document.createElement('style');
+        style.innerHTML = 'body { opacity: 0 !important; }';
+        const cfhide = () => document.head.appendChild(style);
+        const cfshow = () => style.remove();
+        cfhide(); setTimeout(cfshow, 2000);
+        document.addEventListener('coframe:show', cfshow);
+    
+        // Coframe queue setup:
+        window.CFQ = window.CFQ || [];
+        window.CFQ.push({config: {
+            projectId: "673f673a5a4e6b8a0af34c4f",
+        }});
+    </script>
+    <script async src="https://cdn.coframe.com/cf.min.js?project_id=673f673a5a4e6b8a0af34c4f"></script>
     <title>Lunar Adventure: Trip to the Moon</title>
     <style>
         body {
